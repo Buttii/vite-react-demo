@@ -1,13 +1,13 @@
 import React from "react";
-import {Button, Form, Input} from "antd";
 import {http} from "@/utils/http";
+import {Button, Form, Input} from "antd";
+import {UserInfo} from "@/unauthenticated-app/login";
 
-export type UserInfo = Record<"username" | "password", string>
 
-export const Login = () => {
+export const Register = () => {
 
     const handleSubmit = (data: UserInfo) => {
-        http("login", {data, method: 'post'}).then(async response => {
+        http("register", {data, method: 'post'}).then(async response => {
             if (response.ok) {
                 console.log(await response.json());
             }
@@ -22,7 +22,7 @@ export const Login = () => {
             <Input type={"password"} placeholder={"请输入密码"}/>
         </Form.Item>
         <Form.Item>
-            <Button htmlType={"submit"} type={"primary"}>登录</Button>
+            <Button htmlType={"submit"} type={"primary"}>注册</Button>
         </Form.Item>
     </Form>
 }

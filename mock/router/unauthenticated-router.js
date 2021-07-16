@@ -34,7 +34,7 @@ router.post("/register", ctx => {
     const flag = users.some(user => user.username === username)
     if (flag) {
         const user = users.find(item => user.username === username && item.password === password)
-        if (!user) requestError(ctx, "账号或密码错误")
+        if (!user) requestError(ctx, "账号已存在！")
         else {
             const res = {
                 username: user.username,
