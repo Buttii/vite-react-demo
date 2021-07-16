@@ -9,7 +9,7 @@ function writeFile(filename, sourceData) {
 
 function readFile(filename) {
     const data = fs.readFileSync(path.resolve(__dirname, filename), {encoding: "utf-8"})
-    return JSON.parse(data)
+    return data ? JSON.parse(data) : data
 }
 
 

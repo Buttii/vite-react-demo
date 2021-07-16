@@ -4,9 +4,11 @@ const unauthenticatedRouter = require("./router/unauthenticated-router")
 const authenticatedRouter = require('./router/authenticated-router')
 const bodyParser = require("koa-bodyparser")
 
+
+
 app.use(bodyParser())
 
-// 启动路由
+
 app.use(unauthenticatedRouter.routes())
 app.use(unauthenticatedRouter.allowedMethods())
 
