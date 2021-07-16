@@ -15,7 +15,7 @@ router.get("/", (ctx) => {
 router.post("/login", ctx => {
     const {username, password} = ctx.request.body
     const {users} = readFile("../db/user.json")
-    const user = users.find(item => user.username === username && item.password === password)
+    const user = users.find(item => item.username === username && item.password === password)
     if (!user) requestError(ctx, "账号或密码错误")
     else {
         const res = {
@@ -33,7 +33,7 @@ router.post("/register", ctx => {
     const {users} = readFile("../db/user.json")
     const flag = users.some(user => user.username === username)
     if (flag) {
-        const user = users.find(item => user.username === username && item.password === password)
+        const user = users.find(item => item.username === username && item.password === password)
         if (!user) requestError(ctx, "账号已存在！")
         else {
             const res = {
@@ -44,7 +44,7 @@ router.post("/register", ctx => {
             requestSuccess(ctx, res)
         }
     } else {
-        const lastUserId = users[users.length - 1].userId || 1
+        const lastUserId = users[users.length - 1]?.userId || 1
         users.push({username, password, userId: lastUserId + 1})
         writeFile("../db/user.json", {users})
         const res = {
