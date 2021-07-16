@@ -6,13 +6,19 @@
 npm install
 ```
 
-### 启动项目
+### 启动前端项目
 
 ```powershell
 npm run dev
 ```
 
-### 打包项目
+### 启动服务端项目
+
+```powershell
+npm run serve
+```
+
+### 前端打包项目
 
 ```powershell
 npm run build
