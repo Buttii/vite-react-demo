@@ -1,7 +1,8 @@
 import React from "react";
 import {http} from "@/utils/http";
-import {Button, Form, Input} from "antd";
+import {Form, Input} from "antd";
 import {UserInfo} from "@/unauthenticated-app/login";
+import {LongButton} from "@/unauthenticated-app/index";
 
 
 export const Register = () => {
@@ -22,7 +23,7 @@ export const Register = () => {
             <Input type={"password"} placeholder={"请输入密码"}/>
         </Form.Item>
         <Form.Item>
-            <Button htmlType={"submit"} type={"primary"}>注册</Button>
+            <LongButton htmlType={"submit"} type={"primary"}>注册</LongButton>
         </Form.Item>
     </Form>
 }

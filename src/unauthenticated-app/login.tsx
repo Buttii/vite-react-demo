@@ -1,6 +1,7 @@
 import React from "react";
-import {Button, Form, Input} from "antd";
+import {Form, Input} from "antd";
 import {http} from "@/utils/http";
+import {LongButton} from "@/unauthenticated-app/index";
 
 export type UserInfo = Record<"username" | "password", string>
 
@@ -22,7 +23,7 @@ export const Login = () => {
             <Input type={"password"} placeholder={"请输入密码"}/>
         </Form.Item>
         <Form.Item>
-            <Button htmlType={"submit"} type={"primary"}>登录</Button>
+            <LongButton htmlType={"submit"} type={"primary"}>登录</LongButton>
         </Form.Item>
     </Form>
 }
