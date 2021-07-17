@@ -2,6 +2,8 @@ import React, {ReactNode, useContext, useState} from "react";
 import * as auth from "@/auth-provider"
 import {User} from "@/auth-provider";
 import {UserInfo} from "@/unauthenticated-app/login";
+import {useMount} from "@/utils";
+import {http} from "@/utils/http";
 
 
 const AuthContext = React.createContext<{
@@ -13,7 +15,18 @@ const AuthContext = React.createContext<{
 AuthContext.displayName = "AuthContext"
 
 
+const bootstrapUser = async () => {
+    let user = null
+    const token = auth.getToken()
+    if(token) {
+        const data = await http("me", {token})
+        user = data.user
+    }
+    return user
+}
+
 export const AuthProvider = ({children}: {children: ReactNode}) => {
+
     const [user, setUser] = useState<User | null>(null)
 
     const login = (data: {username: string, password:string}) => auth.login(data).then(setUser)
@@ -21,6 +34,16 @@ export const AuthProvider = ({children}: {children: ReactNode}) => {
     const register = (data: UserInfo) => auth.register(data).then(setUser)
 
     const logout = () => auth.logout().then(() => setUser(null))
+
+    useMount(() => {
+
+        bootstrapUser().then(setUser)
+
+    })
+
+
+
+
 
     return <AuthContext.Provider value={{user, login, register, logout}}>
         {children}

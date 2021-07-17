@@ -1,9 +1,6 @@
 function requestSuccess(ctx, data) {
     ctx.status = 200
-    ctx.body = {
-        // message: "请求成功！",
-        data
-    }
+    ctx.body = data
 }
 
 function tokenError(ctx) {

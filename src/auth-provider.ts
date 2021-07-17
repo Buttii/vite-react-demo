@@ -12,7 +12,7 @@ const localStorageKey = "__auth_provider_token__"
 
 export const getToken = () => window.localStorage.getItem(localStorageKey)
 
-export const setToken = ({data: user}: { data: User }) => {
+export const setToken = ({user}: { user: User }) => {
 
     window.localStorage.setItem(localStorageKey, user?.token || "")
     return user
@@ -20,23 +20,11 @@ export const setToken = ({data: user}: { data: User }) => {
 
 
 export const login = (data: UserInfo) => {
-    return http("login", {data, method: "POST"}).then(async response => {
-        if (response.ok) {
-            return setToken(await response.json())
-        } else {
-            return Promise.reject(await response.json())
-        }
-    })
+    return http("login", {data, method: "POST"}).then(setToken)
 }
 
 export const register = (data: UserInfo) => {
-    return http("register", {data, method: "POST"}).then(async response => {
-        if (response.ok) {
-            return setToken(await response.json())
-        } else {
-            return Promise.reject(await response.json())
-        }
-    })
+    return http("register", {data, method: "POST"}).then(setToken)
 }
 
 export const logout = async () => {

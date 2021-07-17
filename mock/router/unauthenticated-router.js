@@ -27,7 +27,7 @@ router.post("/login", ctx => {
             userId: user.userId,
             token: encrypt({username, password})
         }
-        requestSuccess(ctx, res)
+        requestSuccess(ctx, {user: res})
     }
 })
 
@@ -45,7 +45,7 @@ router.post("/register", ctx => {
                 userId: user.userId,
                 token: encrypt({username, password})
             }
-            requestSuccess(ctx, res)
+            requestSuccess(ctx, {user: res})
         }
     } else {
         const lastUserId = users[users.length - 1]?.userId || 0
