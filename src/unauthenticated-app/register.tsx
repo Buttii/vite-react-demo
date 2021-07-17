@@ -1,18 +1,15 @@
 import React from "react";
-import {http} from "@/utils/http";
 import {Form, Input} from "antd";
 import {UserInfo} from "@/unauthenticated-app/login";
 import {LongButton} from "@/unauthenticated-app/index";
+import {useAuth} from "@/context/auth";
 
 
 export const Register = () => {
+    const {register} = useAuth()
 
     const handleSubmit = (data: UserInfo) => {
-        http("register", {data, method: 'post'}).then(async response => {
-            if (response.ok) {
-                console.log(await response.json());
-            }
-        })
+        register(data)
     }
 
     return <Form onFinish={handleSubmit}>

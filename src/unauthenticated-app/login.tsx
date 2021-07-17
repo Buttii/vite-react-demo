@@ -1,18 +1,18 @@
 import React from "react";
 import {Form, Input} from "antd";
-import {http} from "@/utils/http";
 import {LongButton} from "@/unauthenticated-app/index";
+import {useAuth} from "@/context/auth";
 
-export type UserInfo = Record<"username" | "password", string>
+export interface UserInfo {
+    username: string;
+    password: string;
+}
 
 export const Login = () => {
+    const {login} = useAuth()
 
     const handleSubmit = (data: UserInfo) => {
-        http("login", {data, method: 'post'}).then(async response => {
-            if (response.ok) {
-                console.log(await response.json());
-            }
-        })
+        login(data)
     }
 
     return <Form onFinish={handleSubmit}>
