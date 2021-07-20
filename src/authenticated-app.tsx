@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export const AuthenticatedApp = () => {
+export default function AuthenticatedApp () {
 
     return <div>123</div>
 }

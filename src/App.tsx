@@ -1,18 +1,20 @@
 import React from 'react'
 import './App.css'
 
-import {UnauthenticatedApp} from "@/unauthenticated-app";
-import {AuthenticatedApp} from "@/authenticated-app";
+
+import {FullPageLoading} from "@/components/lib";
 import {useAuth} from "@/context/auth";
+
+const UnauthenticatedApp = React.lazy(() => import("@/unauthenticated-app"))
+const AuthenticatedApp = React.lazy(() => import("@/authenticated-app"))
 
 function App() {
     const {user} = useAuth()
 
     return <div className="App">
-        {
-            <div>{user?.token}</div>
-        }
-        {user?.token ? <AuthenticatedApp/> : <UnauthenticatedApp/>}
+        <React.Suspense fallback={<FullPageLoading/>}>
+            {user?.token ? <AuthenticatedApp/> : <UnauthenticatedApp/>}
+        </React.Suspense>
     </div>
 }
 

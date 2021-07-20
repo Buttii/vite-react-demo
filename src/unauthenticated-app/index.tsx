@@ -5,7 +5,7 @@ import {Register} from "@/unauthenticated-app/register";
 import {Button, Card} from "antd";
 import styled from "@emotion/styled";
 
-export const UnauthenticatedApp = () => {
+export default function UnauthenticatedApp() {
     const [isRegister, setIsRegister] = useState(false)
 
     return <Container>
@@ -20,6 +20,7 @@ export const UnauthenticatedApp = () => {
 
 const Container = styled.div`
   display: flex;
+  height: 100vh;
   justify-content: center;
   align-items: center;
 `
