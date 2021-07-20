@@ -1,1 +1,5 @@
 /*全局样式*/
+
+html, body, #root .app {
+    height: 100vh
+}

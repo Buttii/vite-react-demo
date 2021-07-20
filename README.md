@@ -9,7 +9,7 @@ npm install
 ### 启动前端项目
 
 ```powershell
-npm run dev
+npm start
 ```
 
 ### 启动服务端项目

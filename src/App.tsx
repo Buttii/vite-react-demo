@@ -11,7 +11,7 @@ const AuthenticatedApp = React.lazy(() => import("@/authenticated-app"))
 function App() {
     const {user} = useAuth()
 
-    return <div className="App">
+    return <div className="app">
         <React.Suspense fallback={<FullPageLoading/>}>
             {user?.token ? <AuthenticatedApp/> : <UnauthenticatedApp/>}
         </React.Suspense>
