@@ -1,4 +1,4 @@
-# react-admin
+# vite-react-demo
 
 ### 安装依赖
 
