@@ -48,7 +48,7 @@ router.post("/register", ctx => {
             requestSuccess(ctx, {user: res})
         }
     } else {
-        const lastUserId = users[users.length - 1]?.userId || 0
+        const lastUserId = users[users.length - 1] ? users[users.length - 1].userId || 0
         users.push({username, password, userId: lastUserId + 1})
         writeFile("../db/user.json", {users})
         const res = {
