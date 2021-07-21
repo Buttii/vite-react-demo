@@ -14,11 +14,12 @@ export default function AuthenticatedApp() {
 
     return (
         <Container>
-            {/*这里可以配置写*/}
+
             <Nav collapsed={collapsed}/>
             <Container className="site-layout">
                 <Top collapsed={collapsed} setCollapsed={setCollapsed}/>
                 <Layout.Content>
+                    {/*这里可以配置写*/}
                     Content
                 </Layout.Content>
             </Container>
