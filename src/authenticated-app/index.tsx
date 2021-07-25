@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Layout} from 'antd';
-import {Nav} from "./Nav"
-import {Top} from "./Top"
+import {Nav} from "./nav"
+import {Top} from "./top"
 
 import styled from "@emotion/styled"
 
@@ -14,7 +14,6 @@ export default function AuthenticatedApp() {
 
     return (
         <Container>
-
             <Nav collapsed={collapsed}/>
             <Container className="site-layout">
                 <Top collapsed={collapsed} setCollapsed={setCollapsed}/>
