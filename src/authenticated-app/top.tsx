@@ -5,7 +5,7 @@ import styled from "@emotion/styled";
 
 
 export const Top = (
-    {collapsed, setCollapsed}: { collapsed: boolean, setCollapsed: React.Dispatch<React.SetStateAction<boolean>> }
+    {collapsed, setCollapsed}: { collapsed: boolean, setCollapsed: (value: boolean) => void }
 ) => {
 
     const toggle = () => setCollapsed(!collapsed)
