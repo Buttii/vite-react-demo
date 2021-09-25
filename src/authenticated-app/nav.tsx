@@ -25,5 +25,5 @@ export const Nav = ({collapsed}: { collapsed: boolean }) => {
 
 const Left = styled(Layout.Sider)`
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
 `

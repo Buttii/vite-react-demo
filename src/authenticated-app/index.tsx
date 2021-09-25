@@ -5,6 +5,8 @@ import {Top} from "./top"
 
 import styled from "@emotion/styled"
 
+import { AppRouter } from '@/router';
+
 
 export default function AuthenticatedApp() {
 
@@ -19,7 +21,7 @@ export default function AuthenticatedApp() {
                 <Top collapsed={collapsed} setCollapsed={setCollapsed}/>
                 <Layout.Content>
                     {/*这里可以配置写*/}
-                    Content
+                    <AppRouter />
                 </Layout.Content>
             </Container>
         </Container>
